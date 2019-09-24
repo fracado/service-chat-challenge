@@ -26,7 +26,9 @@ export default class App extends Component {
     }
     newMessages.push(newUserMessage);
 
-    if (userMessage.includes('@')) {
+    // RegEx for Email Validation
+    let re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    if (re.test(userMessage)) {
       fetch('https://demo7609961.mockable.io/orders/?CUSTOMER_EMAIL' + userMessage)
       .then(res => res.json())
       .then((result) => {
