@@ -13,6 +13,7 @@ export default class Order extends Component {
     }
   }
 
+  // get shipped order status from API
   componentDidMount() {
       fetch('https://demo7609961.mockable.io/dhl/status/',{
         method: 'POST'
@@ -37,26 +38,28 @@ export default class Order extends Component {
     let order = this.props.order
     return (
       <div>
-        <Card className="shipment">
-          <Col>
-            <ListGroup>
-              <ListGroupItem>
-                <ListGroupItemHeading>Order ID:</ListGroupItemHeading>
-                <ListGroupItemText>{this.state.shipment ? order.order_id : ""}</ListGroupItemText>
-                <ListGroupItemHeading>DHL Tracking ID:</ListGroupItemHeading>
-                <ListGroupItemText>{this.state.shipment ? order.dhl_tracking_id : ""}</ListGroupItemText>
-                <ListGroupItemHeading>Status:</ListGroupItemHeading>
-                <ListGroupItemText>{this.state.shipment ? this.state.shipment.shipmentStatus.status : ""}</ListGroupItemText>
-                <ListGroupItemHeading>Shipped:</ListGroupItemHeading>
-                <ListGroupItemText>{this.state.shipment ? this.displayDate("shipmentDate") : ""}</ListGroupItemText>
-                <ListGroupItemHeading>Last Update:</ListGroupItemHeading>
-                <ListGroupItemText>{this.state.shipment ? this.displayDate("lastUpdate") : ""}</ListGroupItemText>
-                <ListGroupItemHeading>Delivered to:</ListGroupItemHeading>
-                <ListGroupItemText>{this.state.shipment ? this.state.shipment.shipmentStatus.extraInfo : ""}</ListGroupItemText>
-              </ListGroupItem>
-            </ListGroup>
-          </Col>
-        </Card>
+        {this.state.shipment 
+        ? <Card className="shipment">
+            <Col>
+              <ListGroup>
+                <ListGroupItem>
+                  <ListGroupItemHeading>Order ID:</ListGroupItemHeading>
+                  <ListGroupItemText>{order.order_id}</ListGroupItemText>
+                  <ListGroupItemHeading>DHL Tracking ID:</ListGroupItemHeading>
+                  <ListGroupItemText>{order.dhl_tracking_id}</ListGroupItemText>
+                  <ListGroupItemHeading>Status:</ListGroupItemHeading>
+                  <ListGroupItemText>{this.state.shipment.shipmentStatus.status}</ListGroupItemText>
+                  <ListGroupItemHeading>Shipped:</ListGroupItemHeading>
+                  <ListGroupItemText>{this.displayDate("shipmentDate")}</ListGroupItemText>
+                  <ListGroupItemHeading>Last Update:</ListGroupItemHeading>
+                  <ListGroupItemText>{this.displayDate("lastUpdate")}</ListGroupItemText>
+                  <ListGroupItemHeading>Delivered to:</ListGroupItemHeading>
+                  <ListGroupItemText>{this.state.shipment.shipmentStatus.extraInfo}</ListGroupItemText>
+                </ListGroupItem>
+              </ListGroup>
+            </Col>
+          </Card>
+        : <div></div>}
       </div>
     )
   }
