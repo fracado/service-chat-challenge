@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import parser from 'xml2json-light';
-import { Card, Col } from 'reactstrap';
+import { Card, Col, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
 
 export default class Order extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ export default class Order extends Component {
   displayDate(input) {
     let date = this.state.shipment.shipmentStatus[input].substring(0, 10)
     let time = this.state.shipment.shipmentStatus[input].substring(12, 16)
-    return (<di>on {date} at {time} </di>)
+    return (<div>on {date} at {time}h</div>)
   }
 
 
@@ -37,14 +37,22 @@ export default class Order extends Component {
       <div>
         <Card className="shipment">
           <Col>
-              <ul>
-                <li>Order ID: {this.state.shipment ? order.order_id : ""}</li>
-                <li>DHL Tracking ID: {this.state.shipment ? order.dhl_tracking_id : ""}</li>
-                <li>Status: {this.state.shipment ? this.state.shipment.shipmentStatus.status : ""}</li>
-                <li>Shipped: {this.state.shipment ? this.displayDate("shipmentDate") : ""}</li>
-                <li>Last Update: {this.state.shipment ? this.displayDate("lastUpdate") : ""}</li>
-                <li>Delivered to: {this.state.shipment ? this.state.shipment.shipmentStatus.extraInfo : ""}</li>
-              </ul>
+            <ListGroup>
+              <ListGroupItem>
+                <ListGroupItemHeading>Order ID:</ListGroupItemHeading>
+                <ListGroupItemText>{this.state.shipment ? order.order_id : ""}</ListGroupItemText>
+                <ListGroupItemHeading>DHL Tracking ID:</ListGroupItemHeading>
+                <ListGroupItemText>{this.state.shipment ? order.dhl_tracking_id : ""}</ListGroupItemText>
+                <ListGroupItemHeading>Status:</ListGroupItemHeading>
+                <ListGroupItemText>{this.state.shipment ? this.state.shipment.shipmentStatus.status : ""}</ListGroupItemText>
+                <ListGroupItemHeading>Shipped:</ListGroupItemHeading>
+                <ListGroupItemText>{this.state.shipment ? this.displayDate("shipmentDate") : ""}</ListGroupItemText>
+                <ListGroupItemHeading>Last Update:</ListGroupItemHeading>
+                <ListGroupItemText>{this.state.shipment ? this.displayDate("lastUpdate") : ""}</ListGroupItemText>
+                <ListGroupItemHeading>Delivered to:</ListGroupItemHeading>
+                <ListGroupItemText>{this.state.shipment ? this.state.shipment.shipmentStatus.extraInfo : ""}</ListGroupItemText>
+              </ListGroupItem>
+            </ListGroup>
           </Col>
         </Card>
       </div>
