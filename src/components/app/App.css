@@ -13,7 +13,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(2px + 2vmin);
+  font-family: monospace;
   color: black;
 }
 
@@ -27,6 +28,7 @@
   border: 1px solid lightsteelblue;
   border-radius: 6px;
   background-color: mintcream;
+  overflow-y: auto;
 }
 
 .inputbox {
@@ -54,4 +56,17 @@
   margin: 10px 26vw 0 10px;
   width: fit-content;
   padding: 4px;
+}
+
+.inputfield {
+  width: 49.5vw;
+  height: 4vh;
+  border-radius: 6px;
+  background-color: mintcream
+}
+
+.message {
+  width: 20vw*2;
+  padding: 10px;
+  overflow: hidden;
 }
