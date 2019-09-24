@@ -26,6 +26,7 @@
   height: 90vh;
   width: 50vw;
   border: 1px solid lightsteelblue;
+  box-shadow: 0 0 8px 0 steelblue;
   border-radius: 6px;
   background-color: mintcream;
   overflow-y: auto;
@@ -36,14 +37,17 @@
   width: 50vw;
   border: 1px solid lightcyan;
   border-radius: 6px;
+  background-color: mintcream
 }
 
 .align-right {
+  position: absolute;
+  right: 26.5vw;
   text-align: right;
   border: 1px solid lightblue;
   border-radius: 10px;
   background-color: lightblue;
-  margin: 8px 0px 0 44vw;
+  margin: 8px 0px 0 32vw;
   width: fit-content;
   padding: 4px;
 }
