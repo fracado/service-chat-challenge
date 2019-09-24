@@ -41,23 +41,24 @@
 }
 
 .align-right {
-  position: absolute;
-  right: 26.5vw;
+  float: right;
+  clear: both;
   text-align: right;
   border: 1px solid lightblue;
   border-radius: 10px;
   background-color: lightblue;
-  margin: 8px 0px 0 32vw;
+  margin: 8px 0px 10px 26vw;
   width: fit-content;
   padding: 4px;
 }
 
 .align-left {
+  display: inline-block;
   text-align: left;
   border: 1px solid lavender;
   border-radius: 10px;
   background-color: lavender;
-  margin: 10px 26vw 0 10px;
+  margin: 10px 26vw 10px 10px;
   width: fit-content;
   padding: 4px;
 }
@@ -70,7 +71,6 @@
 }
 
 .message {
-  width: 20vw*2;
   padding: 10px;
   overflow: hidden;
 }
