@@ -70,3 +70,22 @@
   padding: 10px;
   overflow: hidden;
 }
+
+.shipment {
+  font-size: 12px;
+  border: 1px solid lavender;
+  border-radius: 25px;
+  background-color: lavender;
+  width: 22.5vw;
+}
+
+ul {
+  list-style-type: none;
+  background-color: lavenderblush;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+ul li {
+  padding: 0 6px 0 10px;
+}
