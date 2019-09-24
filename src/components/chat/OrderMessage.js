@@ -1,18 +1,15 @@
 import React from 'react';
 import Order from './Order'
-import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Card, CardBody, CardTitle } from 'reactstrap';
 
 export default class OrderMessage extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (
       <Card>
         <CardBody className="order">
-          <CardTitle><p>Here are your order shipment details:</p></CardTitle>
-            <CardText>{this.props.orders.map(order => order.status === 'shipped' ? <Order order={order} /> : "No shipped orders found.")}</CardText>
+          <CardTitle>Here are your order shipment details:</CardTitle>
+            <div>{this.props.orders.map(order => order.status === 'shipped' ? <Order key={order.order_id} order={order} /> : "No shipped orders found.")}</div>
           </CardBody>
       </Card>
     )

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardText } from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 import OrderMessage from './OrderMessage';
 
 export default class ChatContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidUpdate() {
     let objDiv = document.getElementById("chat");
@@ -17,10 +14,10 @@ export default class ChatContainer extends Component {
       <div className="chatbox" id="chat">
         <Card>
           <CardBody>
-            <CardText className="message">{this.props.messages.map(
-              message => <div className={message.user ? 'align-right' : 'align-left'}>{message.order ? <OrderMessage orders={this.props.orders}/> : message.text}</div>
+            <div className="message">{this.props.messages.map(
+              (message, i) => <div key={i} className={message.user ? 'align-right' : 'align-left'}>{message.order ? <OrderMessage orders={this.props.orders}/> : message.text}</div>
             )}
-            </CardText>
+            </div>
           </CardBody>
         </Card>
       </div>

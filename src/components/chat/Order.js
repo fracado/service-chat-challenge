@@ -30,7 +30,7 @@ export default class Order extends Component {
   displayDate(input) {
     let date = this.state.shipment.shipmentStatus[input].substring(0, 10)
     let time = this.state.shipment.shipmentStatus[input].substring(12, 16)
-    return (<div>on {date} at {time}h</div>)
+    return ("on "+ date + " at  " + time +"h")
   }
 
 
