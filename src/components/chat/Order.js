@@ -21,6 +21,8 @@ export default class Order extends Component {
         let xml = result;
         let shipment = parser.xml2json(xml);
         this.setState({ shipment: shipment })
+      }).catch(err => {
+        console.log(err)
       });
   }
 

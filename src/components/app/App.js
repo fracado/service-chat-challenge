@@ -29,7 +29,7 @@ export default class App extends Component {
     // RegEx for Email Validation
     let re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     if (re.test(userMessage)) {
-      fetch('https://demo7609961.mockable.io/orders/?CUSTOMER_EMAIL' + userMessage)
+      fetch('https://demo7609961.mockable.io/orders/?CUSTOMER_EMAIL=' + userMessage)
       .then(res => res.json())
       .then((result) => {
         let orderResult = result;
@@ -39,6 +39,8 @@ export default class App extends Component {
         }
         newMessages.push(newOrderMessage);
         this.setState({ messages: [...this.state.messages, ...newMessages], orders: orderResult.orders})
+      }).catch(err => {
+        console.log(err)
       })
     } else {
         let newBotMessage = {
