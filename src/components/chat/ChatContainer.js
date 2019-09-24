@@ -7,9 +7,14 @@ export default class ChatContainer extends Component {
     super(props)
   }
 
+  componentDidUpdate() {
+    let objDiv = document.getElementById("chat");
+    objDiv.scrollTop = objDiv.scrollHeight;
+  }
+
   render() {
     return (
-      <div className="chatbox">
+      <div className="chatbox" id="chat">
         <Card>
           <CardBody>
             <CardText className="message">{this.props.messages.map(
