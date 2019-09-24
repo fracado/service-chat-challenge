@@ -43,7 +43,7 @@ export default class App extends Component {
     } else {
         let newBotMessage = {
           user: false,
-          text: "Please enter your email address to check the status of your orders."
+          text: "I'm sorry, I can't find any orders with that email address. Please try again."
         }
         newMessages.push(newBotMessage);
         this.setState({ messages: [...this.state.messages, ...newMessages]})
